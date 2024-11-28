@@ -1,0 +1,11 @@
+<%= render @movie %>
+
+<% @list.movies.each do |movie| %>
+  <p><%= movie.comment %> - <%= movie.rating %>/5 <%= link_to "delete", movie_path(movie) %></p>
+<% end %>
+<div>
+  <%= link_to "...", movie_path(@movie) %> |
+
+
+
+</div>

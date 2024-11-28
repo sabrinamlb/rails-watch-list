@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+<div class="container">
+
+<h1>movies</h1>
+  <ul>
+    <% @lists.each do |list| %>
+      <li><%= link_to list.name, list_path(list) %>
+    <% end %>
+  </ul>
+  <%= link_to "Créer une nouvelle liste", new_list_path %>
+   <%# <%= link_to "Add a Restaurant", new_restaurant_path %>
+   <%# <%= link_to "Edit a Restaurants", edit_restaurant_path %>
+</div>
