@@ -1,11 +1,5 @@
-<%= render @movie %>
-
-<% @list.movies.each do |movie| %>
-  <p><%= movie.comment %> - <%= movie.rating %>/5 <%= link_to "delete", movie_path(movie) %></p>
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.association :movie, collection: Movie.all, prompt: "Select a movie" %>
+  <%= f.input :comment %>
+  <%= f.button :submit %>
 <% end %>
-<div>
-  <%= link_to "...", movie_path(@movie) %> |
-
-
-
-</div>
