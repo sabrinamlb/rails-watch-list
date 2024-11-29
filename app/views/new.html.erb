@@ -1,11 +1,11 @@
-<div class="container">
-  <h1>Create a New List</h1>
+<h1>Add a new bookmark to <%= @list.name %></h1>
 
-  <%= simple_form_for @list do |f| %>
-    <%= f.input :name, label: "List Name" %>
-    <%= f.input :poster_url, label: "" %>
-    <%= f.button :submit, "Create List", class: "btn btn-success" %>
-  <% end %>
+<%= form_with model: @bookmark, url: list_bookmarks_path(@list), local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :movie_id, 'Select a movie' %>
+    <%= f.collection_select :movie_id, Movie.all, :id, :title, prompt: 'Choose a movie', class: 'form-control' %>
+  </div>
 
-  <%= link_to 'Back to Lists', lists_path, class: 'btn btn-secondary mt-3' %>
-</div>
+  <%= f.submit 'Add Bookmark', class: 'btn btn-success' %>
+<% end %>
+ <%= link_to "back to list", new_list_path %>
